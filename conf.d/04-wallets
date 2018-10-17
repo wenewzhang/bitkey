@@ -6,46 +6,6 @@ SRC=/usr/local/src
 
 cd $SRC
 
-# unpack Electron Cash
-tar -zxf Electron*.tar.gz
-rm Electron*.tar.gz
-
-# install Electron Cash
-mv Electron*/ $SHARE/electron-cash/
-sudo ln -s $SHARE/electron-cash/electron-cash /usr/local/bin/electron-cash
-sudo chmod +x /usr/local/bin/electron-cash
-
-# unpack electrum-LTC
-tar -zxf Electrum-LTC-*.tar.gz
-rm Electrum-LTC-*.tar.gz
-
-# install electrum-LTC
-mv Electrum-LTC-*/ $SHARE/electrum-ltc/
-sudo ln -s $SHARE/electrum-ltc/electrum-ltc /usr/local/bin/electrum-ltc
-sudo chmod +x /usr/local/bin/electrum-ltc
-
-# unpack electrum-dash
-tar -zxf Electrum-DASH-*.tar.gz
-rm Electrum-DASH-*.tar.gz
-mv Electrum-DASH*/ $SHARE/electrum-dash/
-unzip electrum-dash-packages.zip -d $SHARE/electrum-dash/
-rm electrum-dash-packages.zip
-
-# install electrum-dash
-pyrcc4 $SHARE/electrum-dash/icons.qrc -o $SHARE/electrum-dash/gui/qt/icons_rc.py
-#sudo python $SHARE/electrum-dash/setup.py install
-sudo ln -s $SHARE/electrum-dash/electrum-dash /usr/local/bin/electrum-dash
-sudo chmod +x /usr/local/bin/electrum-dash
-
-# unpack TREZOR Python library
-tar -zxf trezor-*.tar.gz
-rm trezor-*.tar.gz
-
-# install TREZOR Python library
-cd trezor-*
-python setup.py install
-cd -
-rm -r trezor-*
 
 # unpack electrum
 tar -zxf Electrum-*.tar.gz
@@ -55,10 +15,6 @@ rm Electrum-*.tar.gz
 mv Electrum-*/ $SHARE/electrum/
 sudo ln -s $SHARE/electrum/electrum /usr/local/bin/electrum
 sudo chmod +x /usr/local/bin/electrum
-
-# install electrum-dash dependencies
-#mkdir $SHARE/electrum-dash/packages/
-/bin/cp $SHARE/electrum/packages/* $SHARE/electrum-dash/packages/ -R  
 
 # unpack Exodus
 unzip exodus-*.zip -d .
